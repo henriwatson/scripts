@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import click
 import boto3
 import magic
@@ -5,6 +6,8 @@ import pasteboard
 import sys
 import os
 from hashlib import blake2b
+
+from urllib.parse import quote
 
 from pprint import pprint
 
@@ -37,7 +40,7 @@ def file(input):
 
     pprint(object)
 
-    print('https://dl.lobi.to/' + filename)
+    print('https://dl.lobi.to/' + quote(filename))
 
 @cli.command()
 def paste():
@@ -57,7 +60,7 @@ def paste():
 
     pprint(object)
 
-    print('https://dl.lobi.to/' + filename)
+    print('https://dl.lobi.to/' + quote(filename))
 
 
 if __name__ == '__main__':
